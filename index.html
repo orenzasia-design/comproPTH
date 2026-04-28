@@ -3,680 +3,999 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>PT. Berkah Sukses Teknik | Authorized DAFENG Dealer</title>
-  <meta name="description" content="PT. Berkah Sukses Teknik – Distributor resmi alat mesin pertanian DAFENG. Traktor modern, combine harvester, dan implement berkualitas tinggi dengan dukungan purna jual profesional.">
-  <!-- Google Fonts & Font Awesome (optional icons) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>PT. PUTRA TEKNIK HARISINDO | Sparepart Truck & Heavy Equipment</title>
+  <meta name="description" content="PT. PUTRA TEKNIK HARISINDO - Sparepart Multi Brands, Tyre, CaO Limestone, Alsintan Dafeng.">
+  
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js" defer></script>
+  
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FBFCF8;
-      color: #1C2E1A;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
     :root {
-      --primary: #0F6B3A;
-      --primary-dark: #0A4F2A;
-      --primary-light: #E0F2E6;
-      --gold: #C9A03D;
-      --gold-light: #F8F2E3;
-      --gray-50: #FAFAFA;
-      --gray-100: #F0F0F0;
-      --gray-700: #3A4D38;
-      --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 20px 35px -8px rgba(15, 107, 58, 0.12);
-      --border-light: #E2E8E0;
+      --orange: #FF5722;
+      --gold: #D4AF37;
+      --gold-glow: rgba(212, 175, 55, 0.4);
+      --dark-bg: #0B0E17;
+      --card-bg: rgba(18, 22, 35, 0.85);
+      --border: rgba(212, 175, 55, 0.25);
+      --text: #E8E8E8;
+      --text-dim: #AAAAAA;
     }
-    /* header */
-    header {
+    * { 
+      margin:0; padding:0; box-sizing:border-box;
+      user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
+      -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none;
+    }
+    input, textarea { user-select: auto; -webkit-user-select: auto; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(ellipse at 30% 40%, #1A1F2E, #0A0E18);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.5;
+      background-attachment: fixed;
+      position: relative;
+    }
+    /* Pattern mewah overlay */
+    body::before {
+      content: "";
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
-      padding: 0.9rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(15, 107, 58, 0.15);
-      transition: all 0.2s;
+      height: 100%;
+      background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+      background-size: 35px 35px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:#0d1117; }
+    ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
+
+    header {
+      position:fixed; top:0; left:0; width:100%; padding:0.8rem 5%;
+      display:flex; justify-content:space-between; align-items:center; z-index:1000; transition:0.3s;
+    }
+    header.scrolled {
+      background:rgba(10, 14, 24, 0.92); backdrop-filter:blur(15px); border-bottom:1px solid var(--border);
     }
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+      display:flex; align-items:center; gap:0.6rem;
+      font-size:1.8rem; font-weight:800; letter-spacing:3px;
+      color:#fff; text-shadow:0 0 15px var(--gold-glow); font-family: monospace;
     }
-    .logo img {
-      height: 48px;
-      width: auto;
-    }
-    .logo-text {
-      font-weight: 800;
-      font-size: 1.35rem;
-      letter-spacing: -0.3px;
-      background: linear-gradient(135deg, #0F6B3A 20%, #C9A03D 90%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+    .logo-img { width:36px; height:36px; object-fit:contain; border-radius:6px; background:rgba(212,175,55,0.2); }
+    .logo span { color:var(--gold); }
     .lang-toggle {
-      background: transparent;
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.8rem;
-      margin-right: 1.2rem;
-      transition: 0.2s;
+      background: transparent; border: 1px solid var(--gold); color: var(--gold);
+      padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; font-weight: 600;
+      transition: 0.3s; margin-left: 1rem; font-size: 0.8rem;
+      display: flex; align-items: center; gap: 0.5rem;
     }
-    .lang-toggle:hover {
-      background: var(--primary);
-      color: white;
-    }
-    nav ul {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+    .lang-toggle:hover { background: var(--gold); color: #0A0E18; border-color: var(--gold); }
+    nav ul { display:flex; list-style:none; gap:1.5rem; }
     nav a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #2D3A2B;
-      transition: 0.2s;
-      font-size: 0.95rem;
+      color:#bbb; text-decoration:none; font-weight:500; font-size:0.9rem;
+      letter-spacing:1px; transition:0.3s; padding:0.4rem 0;
     }
-    nav a:hover { color: var(--primary); }
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      color: var(--primary);
-      cursor: pointer;
+    nav a::after {
+      content:''; display:block; width:0; height:2px; background:var(--gold);
+      box-shadow:0 0 10px var(--gold); transition:0.3s;
     }
-    @media (max-width: 768px) {
-      .menu-toggle { display: block; }
+    nav a:hover { color:#fff; }
+    nav a:hover::after { width:100%; }
+    .menu-toggle { display:none; font-size:1.8rem; color:#fff; cursor:pointer; background:none; border:none; }
+    @media (max-width:768px) {
+      .menu-toggle { display:block; }
       nav ul {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        transition: 0.3s;
-        box-shadow: -5px 0 20px rgba(0,0,0,0.05);
-        z-index: 999;
-        border-left: 3px solid var(--primary);
+        position:fixed; top:0; right:-100%; width:70%; height:100vh;
+        background:#0A0E18; flex-direction:column; justify-content:center;
+        align-items:center; gap:2rem; transition:0.5s; border-left:1px solid var(--gold);
+        backdrop-filter:blur(20px); z-index:999;
       }
-      nav ul.active { right: 0; }
+      nav ul.active { right:0; }
     }
-    section {
-      padding: 110px 5% 80px;
-    }
+
+    section { padding:90px 5% 60px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:2; }
     .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      letter-spacing: -0.02em;
+      font-size:2.2rem; font-weight:700; text-align:center; color:#fff;
+      text-transform:uppercase; letter-spacing:5px; margin-bottom:2.5rem; font-family:monospace;
     }
-    .section-title span {
-      color: var(--primary);
-      border-bottom: 3px solid var(--gold);
-      padding-bottom: 6px;
-    }
-    /* hero */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(120deg, #F4FAF0 0%, #FFFFFF 100%);
-      position: relative;
-    }
-    .hero-content {
-      max-width: 750px;
-      margin: 0 auto;
-      text-align: center;
-    }
+    .section-title span { color:var(--gold); }
+
+    #home { text-align:center; padding-top:150px; }
     .hero-content h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+      font-size:3.5rem; font-weight:900; line-height:1.2; font-family:monospace; margin-bottom:1rem;
+      animation: glitch 3s infinite;
     }
-    .hero-highlight {
-      color: var(--primary);
-    }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: #4A5B46;
-      max-width: 600px;
-      margin: 1.2rem auto;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .hero-content h1 .highlight { color:var(--gold); display:block; font-size:2.5rem; }
+    .hero-content p { font-size:1.1rem; color:#ccc; max-width:600px; margin:0 auto 2rem; }
+    .btn-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
     .btn {
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.25s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: none;
-      cursor: pointer;
+      padding:0.8rem 2rem; border-radius:30px; font-weight:700; letter-spacing:1px;
+      text-decoration:none; transition:0.3s; text-transform:uppercase; font-size:0.8rem;
+      border:1px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:0.5rem;
+      background:transparent; color:var(--gold);
     }
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      box-shadow: 0 6px 14px rgba(15, 107, 58, 0.25);
-    }
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      border: 1.5px solid var(--primary);
-      background: transparent;
-      color: var(--primary);
-    }
-    .btn-outline:hover {
-      background: var(--primary-light);
-    }
-    /* product grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
+    .btn-primary { background:var(--gold); color:#0A0E18; box-shadow:0 0 20px var(--gold-glow); }
+    .btn-primary:hover { background:#C5A028; transform:translateY(-2px); }
+    .btn-outline { border:1px solid var(--gold); }
+    .btn-outline:hover { background:var(--gold); color:#0A0E18; }
+    .btn-sm { padding:0.5rem 1.2rem; font-size:0.75rem; }
+
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; max-width:1200px; margin:0 auto; }
     .product-card {
-      background: white;
-      border-radius: 32px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-light);
-      cursor: pointer;
+      background:var(--card-bg); border:1px solid var(--border); border-radius:24px; overflow:hidden;
+      transition:0.4s; cursor:pointer; backdrop-filter:blur(10px);
     }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary);
+    .product-card:hover { transform:translateY(-10px); border-color:var(--gold); box-shadow:0 20px 40px rgba(212,175,55,0.3); }
+    .product-img { width:100%; height:180px; object-fit:cover; background:#111827; filter:brightness(0.9); }
+    .product-body { padding:1.5rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:0.8rem; }
+    .product-body .icon { font-size:2.5rem; color:var(--gold); }
+    .product-body h3 { font-family:monospace; letter-spacing:1px; color:#fff; }
+    .product-body p { color:#bbb; font-size:0.85rem; }
+    .brands-tag {
+      font-size:0.7rem; color:var(--gold); background:rgba(212,175,55,0.15);
+      padding:0.2rem 1rem; border-radius:15px; letter-spacing:1px; margin-top:0.3rem;
     }
-    .product-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      background: #EFF6EC;
-    }
-    .product-body {
-      padding: 1.6rem;
-      text-align: center;
-    }
-    .product-body h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-    .badge {
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      display: inline-block;
-      margin: 0.6rem 0;
-    }
-    .optional-note {
-      font-size: 0.7rem;
-      color: var(--gold);
-      background: var(--gold-light);
-      display: inline-block;
-      padding: 0.2rem 0.7rem;
-      border-radius: 20px;
-    }
-    /* certificate */
-    .certificate-card {
-      max-width: 900px;
-      margin: 1.5rem auto;
-      background: white;
-      border-radius: 32px;
-      box-shadow: var(--shadow-sm);
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid var(--border-light);
-    }
-    .cert-image {
-      max-width: 100%;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-    /* features */
-    .features-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    .feature-card {
-      flex: 1 1 240px;
-      background: white;
-      border-radius: 28px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      border: 1px solid var(--border-light);
-      transition: 0.2s;
-    }
-    .feature-card i {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    .contact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .contact-card {
-      flex: 1 1 260px;
-      background: var(--gray-50);
-      border-radius: 28px;
-      padding: 2rem;
-      text-align: center;
-      transition: 0.2s;
-      border: 1px solid var(--border-light);
-      text-decoration: none;
-      color: inherit;
-    }
-    .contact-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-3px);
-    }
-    footer {
-      background: #1C2E1A;
-      color: #C8D9C4;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-    }
-    /* modal */
+
     .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(6px);
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: 0.2s;
+      position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(5px);
+      z-index:2000; display:flex; align-items:center; justify-content:center;
+      opacity:0; visibility:hidden; transition:0.3s;
     }
-    .modal-overlay.active {
-      visibility: visible;
-      opacity: 1;
-    }
+    .modal-overlay.active { opacity:1; visibility:visible; }
     .modal {
-      background: white;
-      max-width: 950px;
-      width: 92%;
-      max-height: 85vh;
-      overflow-y: auto;
-      border-radius: 36px;
-      padding: 2rem;
-      position: relative;
+      background:#0f1525; border:1px solid var(--border); border-radius:20px; padding:1.5rem;
+      width:92%; max-width:850px; max-height:85vh; overflow-y:auto; position:relative;
+      box-shadow:0 0 40px rgba(212,175,55,0.3);
     }
     .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
+      position:absolute; top:0.8rem; right:1rem; background:none; border:none;
+      font-size:1.8rem; color:#fff; cursor:pointer;
     }
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8rem;
+    .modal-close:hover { color:var(--gold); }
+    .modal h2 { font-family:monospace; font-size:1.8rem; margin-bottom:1.5rem; color:#fff; }
+    .modal h2 span { color:var(--gold); }
+
+    .brand-grid { display:flex; flex-wrap:wrap; gap:0.5rem; margin:1rem 0; }
+    .brand-chip {
+      padding:0.4rem 1rem; border-radius:20px; border:1px solid #2a3142;
+      background:transparent; color:#ccc; cursor:pointer; font-size:0.8rem; transition:0.3s;
     }
-    .comparison-table th, .comparison-table td {
-      border: 1px solid #E2E8E0;
-      padding: 8px 10px;
-      text-align: left;
+    .brand-chip.selected, .brand-chip:hover { border-color:var(--gold); background:rgba(212,175,55,0.2); color:var(--gold); }
+    .form-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px,1fr)); gap:0.8rem; margin:1rem 0; }
+    .form-group { display:flex; flex-direction:column; gap:0.3rem; }
+    .form-group label { font-size:0.75rem; font-weight:600; color:#aaa; text-transform:uppercase; }
+    .form-group input, .form-group select {
+      padding:0.6rem; border-radius:8px; border:1px solid #2a3142;
+      background:#0d1222; color:#fff; font-size:0.85rem;
     }
-    .comparison-table th {
-      background: #F4F9F2;
+    .form-group input:focus { border-color:var(--gold); outline:none; box-shadow:0 0 8px var(--gold-glow); }
+    .table-wrapper { overflow-x:auto; margin:1rem 0; border:1px solid #2a3142; border-radius:12px; }
+    table { width:100%; border-collapse:collapse; font-size:0.8rem; }
+    th { background:var(--gold); color:#0A0E18; padding:0.6rem; text-align:left; }
+    td { padding:0.5rem; border-bottom:1px solid #1f2937; color:#ddd; }
+    .btn-icon { background:none; border:none; color:var(--gold); cursor:pointer; font-size:1rem; }
+    .btn-icon:hover { color:#fff; }
+
+    .alsintan-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1rem; margin:1.5rem 0; }
+    .alsintan-card {
+      background:#0d1222; border:1px solid #2a3142; border-radius:16px; padding:1rem;
+      text-align:center; transition:0.3s; cursor:pointer;
     }
-    @media (max-width: 640px) {
-      .hero-content h1 { font-size: 2.2rem; }
-      .section-title { font-size: 1.6rem; }
+    .alsintan-card:hover { border-color:var(--gold); box-shadow:0 0 20px rgba(212,175,55,0.3); }
+    .alsintan-card img { width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem; background:#0d1222; }
+    .alsintan-card .icon { font-size:3rem; color:var(--gold); margin-bottom:0.5rem; }
+    .alsintan-card h4 { color:#fff; font-family:monospace; margin-bottom:0.3rem; }
+    .alsintan-card p { color:#aaa; font-size:0.8rem; }
+
+    .feature-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; max-width:1000px; margin:0 auto; text-align:center; }
+    .feature-item {
+      padding:2rem 1.5rem; background:rgba(16,20,34,0.5); border-left:2px solid var(--gold); border-radius:0 20px 20px 0;
+    }
+    .feature-item:hover { background:rgba(212,175,55,0.1); transform:translateY(-5px); }
+    .feature-item .icon { font-size:2.5rem; color:var(--gold); margin-bottom:1rem; }
+    .feature-item h4 { font-family:monospace; letter-spacing:1px; color:#fff; margin-bottom:0.5rem; }
+
+    .contact-wrapper { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; max-width:700px; margin:0 auto; }
+    .contact-card {
+      background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:2rem;
+      flex:1 1 200px; text-align:center; backdrop-filter:blur(10px); transition:0.3s;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-decoration:none; color:inherit; cursor:pointer;
+    }
+    .contact-card:hover { border-color:var(--gold); box-shadow:0 0 30px var(--gold-glow); }
+    .contact-icon {
+      width: 80px; height: 80px; object-fit: contain; margin-bottom: 1rem;
+    }
+    .contact-card h3 { font-family:monospace; margin-top:0.5rem; color:#fff; }
+
+    footer {
+      text-align:center; padding:1.5rem 5%; border-top:1px solid rgba(212,175,55,0.2);
+      color:#aaa; font-size:0.8rem; background:rgba(10,14,24,0.7); backdrop-filter:blur(5px);
+    }
+
+    @keyframes glitch {
+      0%,90%,100%{transform:translate(0);}
+      92%{transform:translate(-2px,1px);} 94%{transform:translate(2px,-1px);}
+      96%{transform:translate(-1px,-1px);} 98%{transform:translate(1px,2px);}
     }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
 <header id="header">
   <div class="logo">
-    <img src="LOGO BST.png" alt="BST Logo" onerror="this.src='https://placehold.co/50x50?text=BST'">
-    <div class="logo-text">BERKAH SUKSES TEKNIK</div>
+    <img src="logo pth.jpg" class="logo-img" alt="Logo PT" draggable="false">
+    <span>HARISINDO<span>.</span></span>
   </div>
-  <div style="display: flex; align-items: center;">
-    <button class="lang-toggle" id="langToggle">🌐 <span id="langText">ID</span></button>
+  <div style="display:flex; align-items:center;">
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+      <span id="langIcon">🌐</span> <span id="langText">EN</span>
+    </button>
     <nav>
-      <button class="menu-toggle" id="menuToggleBtn">☰</button>
-      <ul id="navMenu">
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul id="nav-menu">
         <li><a href="#home" data-lang="nav.home">Beranda</a></li>
         <li><a href="#products" data-lang="nav.products">Produk</a></li>
-        <li><a href="#certificate" data-lang="nav.certificate">Sertifikat</a></li>
-        <li><a href="#whyus" data-lang="nav.whyus">Keunggulan</a></li>
+        <li><a href="#about" data-lang="nav.about">Keunggulan</a></li>
         <li><a href="#contact" data-lang="nav.contact">Kontak</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<section id="home" class="hero">
+<section id="home">
   <div class="hero-content">
-    <h1>PT. BERKAH SUKSES <span class="hero-highlight">TEKNIK</span><br><span style="font-size: 1.6rem;">Authorized Dealer of DAFENG</span></h1>
-    <p class="hero-sub" data-lang="hero.desc">Distributor resmi GOLD DAFENG – solusi mekanisasi pertanian modern. Traktor, combine, implement dengan layanan purna jual profesional.</p>
+    <h1 data-lang="hero.title">PT. PUTRA TEKNIK<br><span class="highlight">HARISINDO</span></h1>
+    <p data-lang="hero.desc">Sparepart Truck, Heavy Equipment, Ban, CaO Limestone & Alsintan Dafeng – Multi Brands, Harga Kompetitif, Tanpa Perantara.</p>
     <div class="btn-group">
-      <a href="#products" class="btn btn-primary" data-lang="hero.explore">🌾 Lihat Produk</a>
-      <a href="#contact" class="btn btn-outline" data-lang="hero.contact">📞 Hubungi Kami</a>
+      <a href="#contact" class="btn btn-primary" data-lang="hero.contact">📞 Hubungi Kami</a>
+      <a href="#products" class="btn btn-outline" data-lang="hero.explore">🔍 Jelajahi Produk</a>
     </div>
   </div>
 </section>
 
 <section id="products">
-  <h2 class="section-title"><span data-lang="products.title">Alat Mesin Pertanian</span> DAFENG</h2>
-  <div class="product-grid" id="productGrid"></div>
-  <h2 class="section-title" style="margin-top: 3rem;"><span data-lang="implements.title">Implement & Alat Bantu</span></h2>
-  <div class="product-grid" id="implementGrid"></div>
-</section>
+  <h2 class="section-title"><span data-lang="products.line">Lini</span> <span data-lang="products.title">Produk</span></h2>
+  <div class="product-grid">
+    
+    <div class="product-card" onclick="setBodyBackground('background-spareparts.jpg'); openModal('modalSparepart');">
+      <img src="sparepart-kolase.jpg" alt="Kolase Unit" class="product-img" draggable="false"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">⚙️</div>
+      <div class="product-body">
+        <div class="icon">⚙️</div>
+        <h3 data-lang="sparepart.title">Spareparts</h3>
+        <p data-lang="sparepart.desc">Truck & Heavy Equipment Multi Brands. Order cepat dengan form interaktif.</p>
+        <span class="brands-tag">SANY · HINO · KAMAZ · BELAZ · UD TRUCK · KOMATSU · CAT</span>
+      </div>
+    </div>
 
-<section id="certificate">
-  <h2 class="section-title"><span data-lang="cert.title">Official Dealer</span> Certificate</h2>
-  <div class="certificate-card">
-    <img src="DAFENG Certificate.jpg" class="cert-image" alt="DAFENG Distributor Certificate" onerror="this.src='https://placehold.co/800x500?text=DAFENG+Certificate'">
-    <p style="margin-top: 1rem; font-weight: 500; color: var(--primary);" data-lang="cert.caption">Resmi ditunjuk sebagai Authorized Dealer oleh Shandong Gold Dafeng Machinery Co., Ltd.</p>
+    <div class="product-card" onclick="setBodyBackground('background-spareparts.jpg'); openModal('modalTyre');buildTyreCatalog();">
+      <img src="tyre-cover.jpg" alt="Ban" class="product-img" draggable="false"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">⭕</div>
+      <div class="product-body">
+        <div class="icon">⭕</div>
+        <h3 data-lang="tyre.title">Tyre / Ban</h3>
+        <p data-lang="tyre.desc">Ban alat berat, truck tambang & logistik. Katalog lengkap dengan spesifikasi.</p>
+        <span class="brands-tag">OFF ROAD · MINING · HIGHWAY</span>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openModal('modalCaO')">
+      <img src="cao-cover.jpg" alt="CaO" class="product-img" draggable="false"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">⛰️</div>
+      <div class="product-body">
+        <div class="icon">⛰️</div>
+        <h3 data-lang="cao.title">CaO Limestone</h3>
+        <p data-lang="cao.desc">Highgrade High Purity (97.6% CaO). Sertifikat lab resmi & kapasitas besar.</p>
+        <span class="brands-tag">HIGH PURITY · INDUSTRIAL</span>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="setBodyBackground('background-alsintan.jpg'); openModal('modalAlsintan');">
+      <img src="alsintan-cover.jpg" alt="Alsintan" class="product-img" draggable="false"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">🚜</div>
+      <div class="product-body">
+        <div class="icon">🚜</div>
+        <h3 data-lang="alsintan.title">Alsintan Dafeng</h3>
+        <p data-lang="alsintan.desc">Alat Mesin Pertanian lengkap. Katalog spesifikasi teknis & estimasi biaya operasional tersedia.</p>
+        <span class="brands-tag">DAFENG · AGRICULTURE</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section id="whyus">
-  <h2 class="section-title"><span data-lang="why.title">Mengapa</span> <span data-lang="why.bst">Berkah Sukses Teknik?</span></h2>
-  <div class="features-grid">
-    <div class="feature-card"><i class="fas fa-trophy"></i><h3 data-lang="feature1.title">Official Dealer</h3><p data-lang="feature1.desc">Garansi resmi pabrik & dukungan teknis langsung.</p></div>
-    <div class="feature-card"><i class="fas fa-clock"></i><h3 data-lang="feature2.title">Respons Cepat</h3><p data-lang="feature2.desc">Tim sales dan teknisi siap membantu dalam hitungan jam.</p></div>
-    <div class="feature-card"><i class="fas fa-chart-line"></i><h3 data-lang="feature3.title">Analisis TCO</h3><p data-lang="feature3.desc">Estimasi biaya kepemilikan 5 tahun, perbandingan fair.</p></div>
+<section id="about">
+  <h2 class="section-title"><span data-lang="about.why">Mengapa</span> <span data-lang="about.us">Kami?</span></h2>
+  <div class="feature-grid">
+    <div class="feature-item">
+      <div class="icon">⚡</div>
+      <h4 data-lang="feature.fast">Respons Cepat</h4>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🏷️</div>
+      <h4 data-lang="feature.price">Harga Kompetitif</h4>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🤝</div>
+      <h4 data-lang="feature.direct">Tanpa Perantara</h4>
+    </div>
   </div>
 </section>
 
 <section id="contact">
-  <h2 class="section-title"><span data-lang="contact.title">Hubungi</span> <span data-lang="contact.team">Tim Kami</span></h2>
-  <div class="contact-grid">
-    <a href="https://wa.me/6281383333435?text=Halo%20BST%2C%20saya%20tertarik%20dengan%20produk%20DAFENG." target="_blank" class="contact-card"><i class="fab fa-whatsapp" style="font-size: 2.5rem; color: #25D366;"></i><h3>WhatsApp</h3><p>+62 813 8333 3435</p></a>
-    <a href="mailto:bst.dafeng@gmail.com" class="contact-card"><i class="fas fa-envelope" style="font-size: 2.5rem; color: var(--primary);"></i><h3>Email</h3><p>bst.dafeng@gmail.com</p></a>
-    <div class="contact-card"><i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--primary);"></i><h3>Kantor</h3><p>Wisma Korindo, Jl. MT. Haryono Kav. 62, Pancoran, Jakarta Selatan 12780</p></div>
+  <h2 class="section-title"><span data-lang="contact.us">Hubungi</span> <span data-lang="contact.them">Kami</span></h2>
+  <div class="contact-wrapper">
+    <a href="https://wa.me/6288802032033" target="_blank" class="contact-card">
+      <img src="Logo WA.jpg" alt="WhatsApp" class="contact-icon"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <div style="display:none; font-size:4rem; color:var(--gold); margin-bottom:1rem;">💬</div>
+      <h3>WhatsApp</h3>
+    </a>
+    <a href="mailto:putraharisindo@gmail.com" class="contact-card">
+      <div style="font-size:4rem; color:var(--gold); margin-bottom:1rem;">✉️</div>
+      <h3>Email</h3>
+    </a>
   </div>
 </section>
 
 <footer>
-  <p data-lang="footer">© 2025 PT. Berkah Sukses Teknik — Authorized Dealer DAFENG | Solusi Mekanisasi Pertanian Modern</p>
+  <p data-lang="footer">© 2025 PT. PUTRA TEKNIK HARISINDO. All rights reserved. | NPWP: 03.974.506.2-005.000 | Sparepart Truck & Heavy Equipment</p>
 </footer>
 
-<!-- Modal Detail Produk -->
-<div class="modal-overlay" id="modalProduct">
-  <div class="modal"><button class="modal-close" onclick="closeModal('modalProduct')">&times;</button><div id="modalProductContent"></div></div>
+<!-- Modal Sparepart (konten sama, hanya teks perusahaan di script nanti) -->
+<div class="modal-overlay" id="modalSparepart">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modalSparepart')">&times;</button>
+    <h2><span data-lang="modal.sparepart">Order</span> <span data-lang="modal.sparepart2">Sparepart</span></h2>
+    <p style="color:#aaa;margin-bottom:0.5rem;" data-lang="modal.sparepart.inst">Pilih brand, isi detail part, lalu submit atau upload Excel.</p>
+    <div style="background:#1a2332; padding:0.8rem; border-radius:8px; margin-bottom:1rem; font-size:0.8rem; color:#ccc;" id="sparepartGuide"></div>
+    
+    <div class="brand-grid" id="brandChips">
+      <span class="brand-chip selected" data-brand="SANY">SANY</span>
+      <span class="brand-chip" data-brand="HINO">HINO</span>
+      <span class="brand-chip" data-brand="KAMAZ">KAMAZ</span>
+      <span class="brand-chip" data-brand="BELAZ">BELAZ</span>
+      <span class="brand-chip" data-brand="UD TRUCK">UD TRUCK</span>
+      <span class="brand-chip" data-brand="KOMATSU">KOMATSU</span>
+      <span class="brand-chip" data-brand="CATERPILLAR">CATERPILLAR</span>
+      <span class="brand-chip" data-brand="OTHERS" data-lang="others">OTHERS BRAND</span>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group"><label data-lang="form.brand">Brand / Unit Type</label><input type="text" id="partBrand" placeholder="Auto terisi"></div>
+      <div class="form-group"><label data-lang="form.pn">Part Number</label><input type="text" id="partNumber" placeholder="Masukkan part number"></div>
+      <div class="form-group"><label data-lang="form.item">Item Name</label><input type="text" id="partName" placeholder="Nama item / deskripsi"></div>
+      <div class="form-group"><label data-lang="form.qty">Qty</label><input type="number" id="partQty" placeholder="Jumlah" min="1" value="1"></div>
+    </div>
+
+    <div style="display:flex; gap:0.8rem; flex-wrap:wrap; margin:1rem 0;">
+      <button class="btn btn-outline btn-sm" onclick="addPartToList()" data-lang="btn.add">+ Tambah ke List</button>
+      <button class="btn btn-outline btn-sm" onclick="downloadExcelTemplate()" data-lang="btn.template">📥 Template Excel</button>
+      <label class="btn btn-outline btn-sm" style="cursor:pointer;" data-lang="btn.upload">📤 Upload Excel 
+        <input type="file" id="uploadExcel" accept=".xlsx,.xls" style="display:none;" onchange="handleExcelUpload(event)">
+      </label>
+    </div>
+
+    <div class="table-wrapper">
+      <table id="partsTable">
+        <thead><tr><th data-lang="th.brand">Brand</th><th data-lang="th.pn">Part Number</th><th data-lang="th.item">Item Name</th><th data-lang="th.qty">Qty</th><th data-lang="th.action">Aksi</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+      <button class="btn btn-primary btn-sm" onclick="submitPartsToWA()" data-lang="btn.sendwa">📤 Kirim via WhatsApp</button>
+      <button class="btn btn-outline btn-sm" onclick="exportPartsToExcel()" data-lang="btn.export">📄 Export ke Excel</button>
+    </div>
+  </div>
 </div>
 
-<!-- Modal TCO Perbandingan -->
+<!-- Modal Tyre -->
+<div class="modal-overlay" id="modalTyre">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modalTyre')">&times;</button>
+    <h2><span data-lang="modal.tyre">Katalog</span> <span data-lang="modal.tyre2">Tyre</span></h2>
+    <p style="color:#aaa;margin-bottom:1rem;" data-lang="modal.tyre.click">Klik tipe ban untuk melihat spesifikasi lengkap.</p>
+    <div id="tyreCatalogGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(160px,1fr)); gap:1rem;"></div>
+    <div id="tyreDetail" style="margin-top:1.5rem; background:#0d1222; padding:1rem; border-radius:12px; display:none;"></div>
+    <div style="margin-top:1.5rem;">
+      <a href="https://wa.me/6288802032033?text=Halo%2C%20saya%20tertarik%20dengan%20ban%20..." class="btn btn-primary btn-sm" target="_blank" data-lang="btn.asktyre">📞 Tanya Harga Ban</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal CaO -->
+<div class="modal-overlay" id="modalCaO">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modalCaO')">&times;</button>
+    <h2><span>CaO</span> <span data-lang="cao.full">Limestone Highgrade</span></h2>
+    <div style="display:flex; flex-wrap:wrap; gap:2rem; align-items:center;">
+      <div style="flex:1; min-width:200px; text-align:center;">
+        <img src="cao-jumbo.jpg" alt="CaO Jumbo Bag" style="width:100%; max-width:250px; border-radius:16px;" draggable="false"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; font-size:3rem; color:var(--gold);">⛰️</div>
+        <p style="color:#fff; font-weight:700; margin-top:0.5rem;">CALCIUM OXIDE (CaO)</p>
+        <p style="color:#aaa;" data-lang="cao.weight">NET WEIGHT: 1,000 KG / Jumbo Bag</p>
+      </div>
+      <div style="flex:2; min-width:280px;">
+        <div style="background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
+          <h4 style="color:#fff; margin-bottom:0.8rem;" data-lang="cao.lab">🧪 Hasil Uji Laboratorium</h4>
+          <p style="font-size:0.8rem; color:#888;" data-lang="cao.sample">SAMPLE: Kapur Powder | DATE: 12/02/2024 - 26/02/2024</p>
+          <table style="margin:0.8rem 0;">
+            <tr><th>Parameter</th><th>Unit</th><th>Results</th><th>Method</th></tr>
+            <tr><td>CaO</th><td>%</th><td style="color:#4caf50; font-weight:700;">97.60</th><td>ASTM C 25 - 19</th></tr>
+            <tr><td>MgO</th><td>%</th><td>0.70</th><td>POMIN-BT/01 (XRF)</th></tr>
+            <tr><td>SiO₂</th><td>%</th><td>0.84</th><td>POMIN-BT/01 (XRF)</th></tr>
+          </table>
+          <button class="btn btn-outline btn-sm" onclick="openROA()" data-lang="cao.roa">🔬 Lihat Dokumen Lengkap (ROA)</button>
+        </div>
+        <div style="margin-top:1rem; background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
+          <h4 style="color:#fff;" data-lang="cao.supply">📦 Ketentuan Supply</h4>
+          <ul style="color:#ccc; font-size:0.85rem; list-style:none; padding-left:0;">
+            <li data-lang="cao.cap">✅ Kapasitas Produksi: 100 ton/hari (±3,000 ton/bulan)</li>
+            <li data-lang="cao.moq">✅ Minimum Order: 25 ton</li>
+            <li data-lang="cao.fob">✅ FOB Port: Marunda, Jakarta</li>
+            <li data-lang="cao.pack">✅ Packaging: Jumbo Bag 1 Ton, double inner</li>
+            <li data-lang="cao.app">✅ Aplikasi: Steel, Water Treatment, Sugar, Chemical, Glass, Construction</li>
+          </ul>
+        </div>
+        <div style="margin-top:1rem; text-align:center;">
+          <a href="https://wa.me/6288802032033?text=Halo%2C%20saya%20tertarik%20dengan%20CaO%20Limestone%20Highgrade." class="btn btn-primary btn-sm" target="_blank" data-lang="cao.order">📦 Pesan CaO Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Alsintan -->
+<div class="modal-overlay" id="modalAlsintan">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modalAlsintan')">&times;</button>
+    <h2><span data-lang="alsintan.title">Alsintan Dafeng</span></h2>
+    <p style="color:#aaa; margin-bottom:1.5rem;" data-lang="alsintan.katalog">Katalog resmi alat mesin pertanian Dafeng, distribusi PT. PUTRA TEKNIK HARISINDO.</p>
+
+    <div class="alsintan-grid" id="alsintanProductGrid"></div>
+    
+    <h4 style="color:#fff; margin-top:2rem;" data-lang="implement.title">⚙️ Implement Pertanian</h4>
+    <div class="alsintan-grid" style="margin-top:0.5rem;" id="implementGrid"></div>
+    
+    <div style="margin-top:2rem; text-align:center;">
+      <a href="https://wa.me/6288802032033?text=Halo%2C%20saya%20tertarik%20dengan%20Alsintan%20Dafeng." class="btn btn-primary btn-sm" target="_blank" data-lang="alsintan.chat">💬 Chat WhatsApp Tim Sales</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Detail Alsintan -->
+<div class="modal-overlay" id="modalAlsintanDetail">
+  <div class="modal" style="max-width:900px;">
+    <button class="modal-close" onclick="closeModal('modalAlsintanDetail')">&times;</button>
+    <div id="alsintanDetailContent"></div>
+  </div>
+</div>
+
+<!-- Modal TCO dengan perbandingan -->
 <div class="modal-overlay" id="modalTCO">
-  <div class="modal"><button class="modal-close" onclick="closeModal('modalTCO')">&times;</button><div id="modalTCOContent"></div></div>
+  <div class="modal" style="max-width:950px;">
+    <button class="modal-close" onclick="closeModal('modalTCO')">&times;</button>
+    <div id="tcoContent"></div>
+  </div>
 </div>
 
-<!-- Modal Video Demo (Combine) -->
+<!-- Modal ROA -->
+<div class="modal-overlay" id="modalROA">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modalROA')">&times;</button>
+    <h2><span>Report of Analysis</span> (ROA)</h2>
+    <img src="roa.jpg" alt="ROA Document" style="width:100%; max-width:600px; margin:0 auto; display:block; border-radius:12px;" draggable="false"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <p style="display:none; text-align:center; color:var(--gold);" data-lang="roa.error">Dokumen ROA tidak dapat dimuat.</p>
+    <p style="text-align:center; margin-top:0.5rem;"><small style="color:#888;">Sertifikat No. 11060124000283 – SUCOFINDO</small></p>
+  </div>
+</div>
+
+<!-- Modal Video Demo Harvester (tetap) -->
 <div class="modal-overlay" id="modalVideo">
-  <div class="modal" style="max-width: 800px;"><button class="modal-close" onclick="closeModal('modalVideo')">&times;</button><div id="modalVideoContent"></div></div>
+  <div class="modal" style="max-width:800px;">
+    <button class="modal-close" onclick="closeModal('modalVideo')">&times;</button>
+    <h2><span>Video Demo</span> Rice Harvester 4LZ-7</h2>
+    <p style="color:#aaa; margin-bottom:1.5rem;">Pilih video uji coba di Sumatera:</p>
+    
+    <div style="display:grid; gap:1rem;">
+      <div style="background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
+        <h4 style="color:#fff; margin-bottom:0.5rem;">🎬 Demo 1: Proses Pemanenan Padi di Lahan</h4>
+        <video controls width="100%" style="border-radius:8px; max-height:400px;">
+          <source src="RH 4LZ-7 1.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video. <a href="RH 4LZ-7 1.mp4" download>Unduh video</a>.
+        </video>
+      </div>
+      <div style="background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
+        <h4 style="color:#fff; margin-bottom:0.5rem;">🎬 Demo 2: Pengoperasian di Sawah Terbuka</h4>
+        <video controls width="100%" style="border-radius:8px; max-height:400px;">
+          <source src="RH 4LZ-7 2.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video. <a href="RH 4LZ-7 2.mp4" download>Unduh video</a>.
+        </video>
+      </div>
+      <div style="background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
+        <h4 style="color:#fff; margin-bottom:0.5rem;">🎬 Demo 3: Hasil Panen & Kinerja Mesin</h4>
+        <video controls width="100%" style="border-radius:8px; max-height:400px;">
+          <source src="RH 4LZ-7 3.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video. <a href="RH 4LZ-7 3.mp4" download>Unduh video</a>.
+        </video>
+      </div>
+    </div>
+    
+    <p style="color:#888; font-size:0.8rem; margin-top:1rem;">*Pastikan folder berisi file video: <strong>RH 4LZ-7 1.mp4</strong>, <strong>RH 4LZ-7 2.mp4</strong>, <strong>RH 4LZ-7 3.mp4</strong>.</p>
+  </div>
 </div>
 
 <script>
-  // ---------- MULTI LANGUAGE ----------
+  // ============ MULTI LANGUAGE dengan entity baru ============
   const translations = {
     id: {
-      langText: 'ID',
-      nav: { home: 'Beranda', products: 'Produk', certificate: 'Sertifikat', whyus: 'Keunggulan', contact: 'Kontak' },
-      hero: { desc: 'Distributor resmi GOLD DAFENG – solusi mekanisasi pertanian modern. Traktor, combine, implement dengan layanan purna jual profesional.', explore: '🌾 Lihat Produk', contact: '📞 Hubungi Kami' },
-      products: { title: 'Alat Mesin Pertanian' },
-      implements: { title: 'Implement & Alat Bantu' },
-      cert: { title: 'Official Dealer', caption: 'Resmi ditunjuk sebagai Authorized Dealer oleh Shandong Gold Dafeng Machinery Co., Ltd.' },
-      why: { title: 'Mengapa', bst: 'Berkah Sukses Teknik?' },
-      feature1: { title: 'Official Dealer', desc: 'Garansi resmi pabrik & dukungan teknis langsung.' },
-      feature2: { title: 'Respons Cepat', desc: 'Tim sales dan teknisi siap membantu dalam hitungan jam.' },
-      feature3: { title: 'Analisis TCO', desc: 'Estimasi biaya kepemilikan 5 tahun, perbandingan fair.' },
-      contact: { title: 'Hubungi', team: 'Tim Kami' },
-      footer: '© 2025 PT. Berkah Sukses Teknik — Authorized Dealer DAFENG | Solusi Mekanisasi Pertanian Modern',
-      detail: 'Detail & Spesifikasi', price: 'Tanya Harga', tcoBtn: 'Estimasi Biaya Operasional',
-      cabinNote: 'Kabin tersedia sebagai opsi (AC / non-AC)',
-      videoDemo: '🎬 Video Demo'
+      langIcon: '🇮🇩', langText: 'ID',
+      nav: { home: 'Beranda', products: 'Produk', about: 'Keunggulan', contact: 'Kontak' },
+      hero: { title: 'PT. PUTRA TEKNIK<br><span class="highlight">HARISINDO</span>', desc: 'Sparepart Truck, Heavy Equipment, Ban, CaO Limestone & Alsintan Dafeng – Multi Brands, Harga Kompetitif, Tanpa Perantara.', contact: '📞 Hubungi Kami', explore: '🔍 Jelajahi Produk' },
+      products: { line: 'Lini', title: 'Produk' },
+      sparepart: { title: 'Spareparts', desc: 'Truck & Heavy Equipment Multi Brands. Order cepat dengan form interaktif.' },
+      tyre: { title: 'Tyre / Ban', desc: 'Ban alat berat, truck tambang & logistik. Katalog lengkap dengan spesifikasi.' },
+      cao: { title: 'CaO Limestone', desc: 'Highgrade High Purity (97.6% CaO). Sertifikat lab resmi & kapasitas besar.', full: 'Limestone Highgrade', weight: 'NET WEIGHT: 1,000 KG / Jumbo Bag', lab: '🧪 Hasil Uji Laboratorium', sample: 'SAMPLE: Kapur Powder | DATE: 12/02/2024 - 26/02/2024', roa: '🔬 Lihat Dokumen Lengkap (ROA)', supply: '📦 Ketentuan Supply', cap: '✅ Kapasitas Produksi: 100 ton/hari (±3,000 ton/bulan)', moq: '✅ Minimum Order: 25 ton', fob: '✅ FOB Port: Marunda, Jakarta', pack: '✅ Packaging: Jumbo Bag 1 Ton, double inner', app: '✅ Aplikasi: Steel, Water Treatment, Sugar, Chemical, Glass, Construction', order: '📦 Pesan CaO Sekarang' },
+      alsintan: { title: 'Alsintan Dafeng', desc: 'Alat Mesin Pertanian lengkap. Katalog spesifikasi teknis & estimasi biaya operasional tersedia.', katalog: 'Katalog resmi alat mesin pertanian Dafeng, distribusi PT. PUTRA TEKNIK HARISINDO.', chat: '💬 Chat WhatsApp Tim Sales', detail: 'Detail & Spesifikasi', price: 'Tanya Harga' },
+      implement: { title: '⚙️ Implement Pertanian', rotary: 'Rotary Tiller', rotaryDesc: 'Pengolah tanah primer', disc: 'Disc Plough', discDesc: 'Bajak piringan', trailer: 'Trailer', trailerDesc: 'Angkut hasil panen', priceBtn: 'Tanya Harga' },
+      feature: { fast: 'Respons Cepat', price: 'Harga Kompetitif', direct: 'Tanpa Perantara' },
+      about: { why: 'Mengapa', us: 'Kami?' },
+      contact: { us: 'Hubungi', them: 'Kami' },
+      footer: '© 2025 PT. PUTRA TEKNIK HARISINDO. All rights reserved. | NPWP: 03.974.506.2-005.000 | Sparepart Truck & Heavy Equipment',
+      modal: {
+        sparepart: 'Order', sparepart2: 'Sparepart', sparepartInst: 'Pilih brand, isi detail part, lalu submit atau upload Excel.',
+        sparepartGuide: '<strong>📋 Petunjuk penggunaan Template Excel:</strong><br>1. Klik <strong>"📥 Template Excel"</strong> untuk mengunduh format standar.<br>2. Isi data part yang dibutuhkan (Brand, Part Number, Item Name, Qty).<br>3. Klik <strong>"📤 Upload Excel"</strong> untuk mengimpor data ke form di bawah.<br>4. Atau isi manual langsung pada form.',
+        tyre: 'Katalog', tyre2: 'Tyre', tyreClick: 'Klik tipe ban untuk melihat spesifikasi lengkap.'
+      },
+      form: { brand: 'Brand / Unit Type', pn: 'Part Number', item: 'Item Name', qty: 'Qty' },
+      btn: { add: '+ Tambah ke List', template: '📥 Template Excel', upload: '📤 Upload Excel', sendwa: '📤 Kirim via WhatsApp', export: '📄 Export ke Excel', asktyre: '📞 Tanya Harga Ban' },
+      th: { brand: 'Brand', pn: 'Part Number', item: 'Item Name', qty: 'Qty', action: 'Aksi' },
+      others: 'OTHERS BRAND',
+      roa: { error: 'Dokumen ROA tidak dapat dimuat.' },
+      tco: { 
+        title: 'Estimasi Biaya Operasional & Kepemilikan',
+        definisi: 'Estimasi Biaya Operasional & Kepemilikan (Operational Cost & Ownership Estimate) adalah ringkasan proyeksi biaya yang akan dikeluarkan pembeli <strong>setelah pembelian unit</strong>, mencakup konsumsi bahan bakar, perawatan rutin, overhaul besar, serta nilai jual kembali di akhir periode.',
+        asumsi: '*Asumsi: solar Rp14.000/L, 1.000 jam operasi/tahun, 0.08 L/HP/jam.',
+        fuel: 'Biaya BBM/tahun',
+        maint: 'Biaya Maintenance/tahun',
+        overhaul: 'Overhaul (tahun ke-5)',
+        resale: 'Nilai Jual Kembali',
+        total5: 'Total Biaya 5 Tahun',
+        totalYear: 'Rata‑rata per Tahun',
+        ask: '📞 Tanya Lebih Lanjut',
+        comparison: 'Perbandingan Biaya Operasional dengan Kompetitor (estimasi)',
+        disclaimer: '*Data kompetitor merupakan perkiraan berdasarkan spesifikasi umum dan informasi pasar. Biaya aktual dapat bervariasi.'
+      }
     },
     en: {
-      langText: 'EN',
-      nav: { home: 'Home', products: 'Products', certificate: 'Certificate', whyus: 'Why Us', contact: 'Contact' },
-      hero: { desc: 'Official GOLD DAFENG distributor – modern agricultural mechanization. Tractors, combines, implements with professional after-sales.', explore: '🌾 View Products', contact: '📞 Contact Us' },
-      products: { title: 'Agricultural Machinery' },
-      implements: { title: 'Implements & Attachments' },
-      cert: { title: 'Official Dealer', caption: 'Officially appointed Authorized Dealer by Shandong Gold Dafeng Machinery Co., Ltd.' },
-      why: { title: 'Why', bst: 'Berkah Sukses Teknik?' },
-      feature1: { title: 'Official Dealer', desc: 'Factory warranty & direct technical support.' },
-      feature2: { title: 'Fast Response', desc: 'Sales & technical team ready within hours.' },
-      feature3: { title: 'TCO Analysis', desc: '5-year ownership cost estimate, fair comparison.' },
-      contact: { title: 'Contact', team: 'Our Team' },
-      footer: '© 2025 PT. Berkah Sukses Teknik — Authorized DAFENG Dealer | Modern Agricultural Mechanization',
-      detail: 'Details & Specs', price: 'Ask Price', tcoBtn: 'Operational Cost Estimate',
-      cabinNote: 'Cabin available as optional (AC / non-AC)',
-      videoDemo: '🎬 Video Demo'
+      langIcon: '🇬🇧', langText: 'EN',
+      nav: { home: 'Home', products: 'Products', about: 'Why Us', contact: 'Contact' },
+      hero: { title: 'PT. PUTRA TEKNIK<br><span class="highlight">HARISINDO</span>', desc: 'Multi Brand Truck & Heavy Equipment Spare Parts, Tires, CaO Limestone & Dafeng Agricultural Machinery – Competitive Price, Direct Contact.', contact: '📞 Contact Us', explore: '🔍 Explore Products' },
+      products: { line: 'Product', title: 'Lines' },
+      sparepart: { title: 'Spare Parts', desc: 'Multi Brand Truck & Heavy Equipment. Quick order with interactive form.' },
+      tyre: { title: 'Tire', desc: 'Heavy equipment, mining & logistics tires. Complete catalog with specifications.' },
+      cao: { title: 'CaO Limestone', desc: 'Highgrade High Purity (97.6% CaO). Certified lab report & large capacity.', full: 'Limestone Highgrade', weight: 'NET WEIGHT: 1,000 KG / Jumbo Bag', lab: '🧪 Laboratory Test Results', sample: 'SAMPLE: Limestone Powder | DATE: 12/02/2024 - 26/02/2024', roa: '🔬 View Full Report (ROA)', supply: '📦 Supply Terms', cap: '✅ Production Capacity: 100 tons/day (±3,000 tons/month)', moq: '✅ Minimum Order: 25 tons', fob: '✅ FOB Port: Marunda, Jakarta', pack: '✅ Packaging: 1 Ton Jumbo Bag, double inner', app: '✅ Applications: Steel, Water Treatment, Sugar, Chemical, Glass, Construction', order: '📦 Order CaO Now' },
+      alsintan: { title: 'Dafeng Machinery', desc: 'Complete agricultural machinery. Technical specs & operational cost estimate available.', katalog: 'Official Dafeng agricultural machinery catalog, distributed by PT. PUTRA TEKNIK HARISINDO.', chat: '💬 Chat Sales on WhatsApp', detail: 'Details & Specs', price: 'Ask Price' },
+      implement: { title: '⚙️ Agricultural Implements', rotary: 'Rotary Tiller', rotaryDesc: 'Primary soil cultivator', disc: 'Disc Plough', discDesc: 'Disc plow', trailer: 'Trailer', trailerDesc: 'Harvest transport', priceBtn: 'Ask Price' },
+      feature: { fast: 'Fast Response', price: 'Competitive Price', direct: 'Direct Contact' },
+      about: { why: 'Why', us: 'Us?' },
+      contact: { us: 'Contact', them: 'Us' },
+      footer: '© 2025 PT. PUTRA TEKNIK HARISINDO. All rights reserved. | NPWP: 03.974.506.2-005.000 | Sparepart Truck & Heavy Equipment',
+      modal: {
+        sparepart: 'Order', sparepart2: 'Spare Parts', sparepartInst: 'Select brand, fill in part details, then submit or upload Excel.',
+        sparepartGuide: '<strong>📋 Excel Template Instructions:</strong><br>1. Click <strong>"📥 Template Excel"</strong> to download the standard format.<br>2. Fill in the required part data (Brand, Part Number, Item Name, Qty).<br>3. Click <strong>"📤 Upload Excel"</strong> to import data into the form below.<br>4. Or fill manually directly on the form.',
+        tyre: 'Tire', tyre2: 'Catalog', tyreClick: 'Click on a tire type to see full specifications.'
+      },
+      form: { brand: 'Brand / Unit Type', pn: 'Part Number', item: 'Item Name', qty: 'Quantity' },
+      btn: { add: '+ Add to List', template: '📥 Excel Template', upload: '📤 Upload Excel', sendwa: '📤 Send via WhatsApp', export: '📄 Export to Excel', asktyre: '📞 Ask Tire Price' },
+      th: { brand: 'Brand', pn: 'Part Number', item: 'Item Name', qty: 'Qty', action: 'Action' },
+      others: 'OTHERS BRAND',
+      roa: { error: 'ROA document cannot be loaded.' },
+      tco: { 
+        title: 'Operational Cost & Ownership Estimate',
+        definisi: 'The Operational Cost & Ownership Estimate summarizes projected costs after purchasing the unit: fuel, routine maintenance, major overhaul, and resale value.',
+        asumsi: '*Assumption: diesel IDR 14,000/L, 1,000 operating hours/year, 0.08 L/HP/hour.',
+        fuel: 'Fuel Cost/year',
+        maint: 'Maintenance Cost/year',
+        overhaul: 'Overhaul (year 5)',
+        resale: 'Resale Value',
+        total5: 'Total 5-Year Cost',
+        totalYear: 'Average per Year',
+        ask: '📞 Ask More',
+        comparison: 'Operational Cost Comparison with Competitors (estimated)',
+        disclaimer: '*Competitor data is estimated based on typical specifications and market information. Actual costs may vary.'
+      }
     }
   };
-  let currentLang = 'id';
+
+  let currentLang = localStorage.getItem('orenzLang') || 'id';
   function t(key) {
     const keys = key.split('.');
     let val = translations[currentLang];
-    for (let k of keys) if (val && val[k] !== undefined) val = val[k]; else return key;
+    for (const k of keys) {
+      if (val && val[k] !== undefined) val = val[k];
+      else return key;
+    }
     return val;
   }
+
   function applyLanguage(lang) {
     currentLang = lang;
-    localStorage.setItem('bstLang', lang);
+    localStorage.setItem('orenzLang', lang);
     document.querySelectorAll('[data-lang]').forEach(el => {
       const key = el.getAttribute('data-lang');
       const translated = t(key);
-      if (translated) el.textContent = translated;
+      if (translated && key !== 'langIcon' && key !== 'langText') {
+        if (typeof translated === 'string' && translated.includes('<')) {
+          el.innerHTML = translated;
+        } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = translated;
+        } else {
+          el.textContent = translated;
+        }
+      }
     });
+    document.getElementById('langIcon').textContent = translations[lang].langIcon;
     document.getElementById('langText').textContent = translations[lang].langText;
-    renderProducts();
+    document.getElementById('sparepartGuide').innerHTML = t('modal.sparepartGuide');
+    if (document.getElementById('modalAlsintan').classList.contains('active')) {
+      buildAlsintanCatalog();
+    }
+    if (document.getElementById('modalTyre').classList.contains('active')) {
+      buildTyreCatalog();
+    }
   }
-  function toggleLang() { applyLanguage(currentLang === 'id' ? 'en' : 'id'); }
-  document.getElementById('langToggle').addEventListener('click', toggleLang);
 
-  // --- Product Data (DAFENG) ---
-  const tractorData = {
-    DF504: { name: 'DF504', hp: 50, img: 'df504.jpg', priceBase: 5324, specs_id: ['4 silinder 50 HP', 'Transmisi 8F+4R', '4WD + Power Steering', 'PTO 540/720 rpm', 'Angkat 3-point: 800 kg'], specs_en: ['4-cyl 50 HP', '8F+4R transmission', '4WD + Power Steering', 'PTO 540/720 rpm', 'Lift: 800 kg'], desc_id: 'Traktor serbaguna, irit BBM, kabin opsional.', desc_en: 'Versatile, fuel efficient tractor, cabin optional.' },
-    DF704: { name: 'DF704', hp: 70, img: 'df704.jpg', priceBase: 6676, specs_id: ['70 HP', '8F+4R', 'PTO 540/1000 rpm', 'Angkat 1.200 kg'], specs_en: ['70 HP', '8F+4R', 'PTO 540/1000 rpm', 'Lift 1,200 kg'], desc_id: 'Traktor tangguh untuk lahan berat, kabin opsional.', desc_en: 'Powerful for heavy soil, cabin optional.' },
-    DF904: { name: 'DF904', hp: 90, img: 'df904.jpg', priceBase: 10310, specs_id: ['90 HP', '12F+4R', 'PTO 540/1000 rpm', 'Angkat 1.600 kg'], specs_en: ['90 HP', '12F+4R', 'PTO 540/1000 rpm', 'Lift 1,600 kg'], desc_id: 'Traktor heavy-duty, kabin AC opsional.', desc_en: 'Heavy-duty tractor, optional AC cabin.' },
-    DF1004: { name: 'DF1004', hp: 100, img: 'df1004.jpg', priceBase: 10408, specs_id: ['100 HP', '12F+12R Powershuttle', 'PTO 540/1000 rpm', 'Angkat 2.000 kg'], specs_en: ['100 HP', '12F+12R Powershuttle', 'PTO 540/1000 rpm', 'Lift 2,000 kg'], desc_id: 'Traktor flagship, kenyamanan premium, kabin opsional.', desc_en: 'Flagship tractor, premium comfort, cabin optional.' },
-    Combine4LZ7: { name: '4LZ-7', hp: 120, img: '4lz7.jpg', priceBase: 18900, specs_id: ['120 HP', 'Kapasitas 5-7 ton/jam', 'Grain tank 1.500 L', 'Lebar potong 2.2 m', 'Sistem aksial'], specs_en: ['120 HP', 'Capacity 5-7 t/h', 'Grain tank 1,500 L', 'Cutting width 2.2 m', 'Axial system'], desc_id: 'Combine harvester modern, efisiensi tinggi, kabin standar.', desc_en: 'Modern combine harvester, high efficiency, standard cabin.' }
-  };
-  const implementsList = [
-    { name: 'Rotary Tiller', img: 'rotary-tiller.jpg', icon: 'fas fa-tractor', desc_id: 'Pengolah tanah sempurna', desc_en: 'Perfect soil cultivation' },
-    { name: 'Disc Plough', img: 'disc-plough.jpg', icon: 'fas fa-arrow-down', desc_id: 'Bajak piringan untuk lahan keras', desc_en: 'Disc plow for hard soil' },
-    { name: 'Agricultural Trailer', img: 'trailer.jpg', icon: 'fas fa-truck', desc_id: 'Angkut hasil panen hingga 5 ton', desc_en: 'Harvest transport up to 5 tons' }
+  function toggleLanguage() {
+    applyLanguage(currentLang === 'id' ? 'en' : 'id');
+  }
+
+  // ============ BACKGROUND & PROTEKSI ============
+  let originalBackground = getComputedStyle(document.body).backgroundImage;
+  function setBodyBackground(imageFile) {
+    document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${imageFile}')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.classList.add('custom-bg');
+  }
+  function resetBodyBackground() {
+    document.body.style.backgroundImage = originalBackground || "radial-gradient(ellipse at 30% 40%, #1A1F2E, #0A0E18)";
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.classList.remove('custom-bg');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    applyLanguage(currentLang);
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || e.keyCode === 123 || 
+         (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+         (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'p' || e.key === 'U' || e.key === 'S' || e.key === 'P'))) {
+        e.preventDefault();
+        return false;
+      }
+    });
+    document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
+    document.body.addEventListener('contextmenu', e => { e.preventDefault(); return false; });
+  });
+
+  // ============ HEADER SCROLL ============
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ============ MOBILE MENU ============
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('nav-menu').classList.toggle('active');
+  });
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => document.getElementById('nav-menu').classList.remove('active'));
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ============ MODAL ============
+  function openModal(id) { document.getElementById(id).classList.add('active'); }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    if (!document.querySelector('.modal-overlay.active')) {
+      resetBodyBackground();
+    }
+  }
+  document.querySelectorAll('.modal-overlay').forEach(ov => {
+    ov.addEventListener('click', function(e) { if (e.target === this) closeModal(this.id); });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.active').forEach(ov => closeModal(ov.id));
+    }
+  });
+
+  // ============ SPAREPART ============
+  let selectedBrand = 'SANY';
+  document.getElementById('partBrand').value = selectedBrand;
+  document.querySelectorAll('#brandChips .brand-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('#brandChips .brand-chip').forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      selectedBrand = this.dataset.brand;
+      document.getElementById('partBrand').value = selectedBrand;
+    });
+  });
+
+  let partsList = [];
+  function addPartToList() {
+    const brand = document.getElementById('partBrand').value || selectedBrand;
+    const partNumber = document.getElementById('partNumber').value.trim();
+    const partName = document.getElementById('partName').value.trim();
+    const qty = parseInt(document.getElementById('partQty').value) || 1;
+    if (!partNumber && !partName) { alert(currentLang==='id'?'Minimal isi Part Number atau Item Name.':'Please fill Part Number or Item Name.'); return; }
+    partsList.push({ brand, partNumber, partName, qty });
+    renderPartsTable();
+    document.getElementById('partNumber').value = '';
+    document.getElementById('partName').value = '';
+    document.getElementById('partQty').value = 1;
+  }
+  function renderPartsTable() {
+    const tbody = document.querySelector('#partsTable tbody');
+    tbody.innerHTML = '';
+    partsList.forEach((item, i) => {
+      tbody.innerHTML += `<tr><td>${item.brand}</td><td>${item.partNumber||'-'}</td><td>${item.partName||'-'}</td><td>${item.qty}</td><td><button class="btn-icon" onclick="deletePart(${i})">❌</button></td></tr>`;
+    });
+  }
+  function deletePart(i) { partsList.splice(i,1); renderPartsTable(); }
+  function submitPartsToWA() {
+    if (partsList.length===0) { alert(currentLang==='id'?'Tambahkan minimal 1 item.':'Add at least 1 item.'); return; }
+    let msg = currentLang==='id'?'Halo PT. PUTRA TEKNIK HARISINDO, berikut list sparepart:%0A%0A':'Hello PT. PUTRA TEKNIK HARISINDO, here is my spare parts list:%0A%0A';
+    partsList.forEach((item,i) => msg += `${i+1}. Brand: ${item.brand} | PN: ${item.partNumber||'-'} | Item: ${item.partName||'-'} | Qty: ${item.qty}%0A`);
+    msg += currentLang==='id'?'%0ATerima kasih.':'%0AThank you.';
+    window.open(`https://wa.me/6288802032033?text=${msg}`, '_blank');
+  }
+  function exportPartsToExcel() {
+    if (partsList.length===0) { alert(currentLang==='id'?'List kosong.':'List is empty.'); return; }
+    const ws = XLSX.utils.json_to_sheet(partsList);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Sparepart Order");
+    XLSX.writeFile(wb, "putra_harisindo_sparepart.xlsx");
+  }
+  function downloadExcelTemplate() {
+    const template = [
+      { brand:'SANY', partNumber:'123456', partName:'Filter Oli', qty:2 },
+      { brand:'HINO', partNumber:'', partName:'Kampas Rem', qty:4 },
+      { brand:'BELAZ', partNumber:'BZ-789', partName:'Bearing', qty:1 }
+    ];
+    const ws = XLSX.utils.json_to_sheet(template);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Template");
+    XLSX.writeFile(wb, "template_sparepart.xlsx");
+  }
+  function handleExcelUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = new Uint8Array(e.target.result);
+        const wb = XLSX.read(data, {type:'array'});
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const json = XLSX.utils.sheet_to_json(ws);
+        if (json.length===0) { alert('File Excel kosong.'); return; }
+        json.forEach(row => {
+          const brand = row.brand || row.Brand || row.BRAND || 'OTHERS';
+          const partNumber = row.partNumber || row['Part Number'] || row['PART NUMBER'] || '';
+          const partName = row.partName || row['Item Name'] || row['ITEM NAME'] || '';
+          const qty = row.qty || row.Qty || row.QTY || 1;
+          partsList.push({ brand, partNumber, partName, qty });
+        });
+        renderPartsTable();
+        alert(`Berhasil import ${json.length} item.`);
+      } catch (err) { alert('Gagal membaca file Excel.'); }
+    };
+    reader.readAsArrayBuffer(file);
+  }
+
+  // ============ TYRE ============
+  const tyreData = [
+    { name:'CB793', type:'Widebody Dump Truck', img:'tyre-cb793.jpg', sizes:['13.00R25 ★★★ 163/182A','14.00R24 ★★★ 169/188A','14.00R25 ★★★ 169/188A'], tread:'29-31 mm', desc: currentLang==='id'?'Pola khusus truk widebody. Traksi unggul di medan basah, kompon tahan potong.':'Special widebody truck pattern. Excellent traction on wet ground.' },
+    { name:'CM770PRO', type:'Crane Tire', img:'tyre-cm770pro.jpg', sizes:['385/95R25 170F'], tread:'Variatif', desc: currentLang==='id'?'Stabilitas tinggi, longitudinal groove anti selip.':'High stability, anti-slip longitudinal groove.' },
+    { name:'CB386', type:'Loader Tire', img:'tyre-cb386.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Dalam', desc: 'Block besar, traksi sangat baik. Kompon fleksibel tahan potong/tusuk.' },
+    { name:'E4 Underground', type:'Underground Mine', img:'tyre-e4.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Ekstra dalam', desc: 'Desain block besar untuk operasi bawah tanah.' },
+    { name:'Smooth Mine', type:'Underground Smooth', img:'tyre-smooth.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Low Section', desc: 'Permukaan halus, kontur kuat, masa pakai panjang.' },
+    { name:'Dump Truck', type:'Off-Highway Dump', img:'tyre-dump.jpg', sizes:['16.00R25','23.5R25','26.5R25'], tread:'Ultra deep', desc: 'Heat dissipation, kompon TKPH tinggi.' },
+    { name:'Loader Bias', type:'Bias Loader', img:'tyre-loader-bias.jpg', sizes:['Multi size'], tread:'Standar', desc: 'Ekonomis dan andal untuk berbagai kondisi.' },
+    { name:'Motor Grader', type:'Grader', img:'tyre-grader.jpg', sizes:['Tersedia'], tread:'Variatif', desc: 'Traksi baik, wear resistance optimal.' }
   ];
 
-  // Hitung harga perolehan akhir
-  function getFinalPrice(baseUSD) {
-    const kurs = 17000, shipping = 1100, duty = 0.05, pdi = 0.01, tools = 7500000;
-    return (baseUSD * kurs + shipping * kurs) * (1 + duty + pdi) + tools;
-  }
-
-  // Data kompetitor untuk perbandingan (berdasarkan HP, skala proporsional dari data benchmark traktor 100HP)
-  const competitorBench = {
-    'DAFENG': { fuel: 112000000, maintPct: 0.03, overhaulPct: 0.2, resalePct: 0.35, priceFactor: 1 },
-    'KUBOTA (K)': { fuel: 100800000, maintPct: 0.045, overhaulPct: 0.18, resalePct: 0.42, priceFactor: 1.67 },
-    'JOHN DEERE (JD)': { fuel: 105000000, maintPct: 0.05, overhaulPct: 0.19, resalePct: 0.45, priceFactor: 1.84 },
-    'MF (Massey Ferguson)': { fuel: 108000000, maintPct: 0.048, overhaulPct: 0.2, resalePct: 0.38, priceFactor: 2.09 },
-    'YANMAR (Y)': { fuel: 106000000, maintPct: 0.047, overhaulPct: 0.19, resalePct: 0.41, priceFactor: 1.75 }
-  };
-  function getCompetitorTCO(basePriceUSD, hp) {
-    const baseFinal = getFinalPrice(basePriceUSD);
-    const results = [];
-    for (const [brand, data] of Object.entries(competitorBench)) {
-      const finalPrice = (brand === 'DAFENG') ? baseFinal : getFinalPrice(basePriceUSD * data.priceFactor);
-      const fuelPerYear = data.fuel * (hp / 100);
-      const maintPerYear = finalPrice * data.maintPct;
-      const overhaul = finalPrice * data.overhaulPct;
-      const resale = finalPrice * data.resalePct;
-      const total5 = finalPrice + (fuelPerYear + maintPerYear) * 5 + overhaul - resale;
-      results.push({ brand, finalPrice, fuelPerYear, maintPerYear, overhaul, resale, total5, perYear: total5 / 5 });
-    }
-    return results;
-  }
-
-  function formatIDR(val) { return new Intl.NumberFormat('id-ID').format(Math.round(val)); }
-
-  function openProductDetail(modelKey) {
-    const p = tractorData[modelKey];
-    const isId = currentLang === 'id';
-    const specs = isId ? p.specs_id : p.specs_en;
-    const desc = isId ? p.desc_id : p.desc_en;
-    const cabinNote = isId ? t('cabinNote') : (currentLang === 'en' ? 'Cabin optional (AC/non-AC)' : '');
-    document.getElementById('modalProductContent').innerHTML = `
-      <h2 style="color: #0F6B3A;">${p.name} (${p.hp} HP)</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
-        <div style="flex:1; text-align:center"><img src="${p.img}" style="max-width:100%; border-radius: 24px;" onerror="this.src='https://placehold.co/400x300'"></div>
-        <div style="flex:2"><ul style="padding-left: 1.2rem;">${specs.map(s => `<li>${s}</li>`).join('')}</ul>
-        <p style="margin: 1rem 0;">${desc}</p>
-        ${p.name !== '4LZ-7' ? `<div class="optional-note" style="margin-bottom:1rem;">${cabinNote}</div>` : ''}
-        <div style="display: flex; gap: 1rem;"><button class="btn btn-primary" onclick="askPrice('${p.name}')">📞 ${t('price')}</button><button class="btn btn-outline" onclick="showTCO('${modelKey}')">📊 ${t('tcoBtn')}</button></div></div>
-      </div>
-    `;
-    openModal('modalProduct');
-  }
-
-  function showTCO(modelKey) {
-    const p = tractorData[modelKey];
-    const competitors = getCompetitorTCO(p.priceBase, p.hp);
-    let rows = '';
-    competitors.forEach(c => {
-      rows += `<tr><td><strong>${c.brand}</strong></td><td>Rp ${formatIDR(c.finalPrice)}</td><td>Rp ${formatIDR(c.fuelPerYear)}</td><td>Rp ${formatIDR(c.maintPerYear)}</td><td>Rp ${formatIDR(c.overhaul)}</td><td>Rp ${formatIDR(c.resale)}</td><td>Rp ${formatIDR(c.total5)}</td><td>Rp ${formatIDR(c.perYear)}</td></tr>`;
+  function buildTyreCatalog() {
+    const grid = document.getElementById('tyreCatalogGrid');
+    grid.innerHTML = '';
+    tyreData.forEach((tyre, i) => {
+      grid.innerHTML += `
+        <div class="alsintan-card" onclick="showTyreDetail(${i})" style="text-align:center; padding:1rem;">
+          <img src="${tyre.img}" alt="${tyre.name}" draggable="false" style="width:100%; height:90px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem; background:#0d1222;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div style="display:none; font-size:2.5rem; color:var(--gold);">⭕</div>
+          <span style="display:block; color:#fff; font-weight:600;">${tyre.name}</span>
+          <small style="color:#888;">${tyre.type}</small>
+          <small style="display:block; color:#aaa;">${tyre.sizes[0]}</small>
+        </div>`;
     });
-    document.getElementById('modalTCOContent').innerHTML = `
-      <h2 style="color:#0F6B3A;">📊 Estimasi Biaya Kepemilikan – ${p.name} (${p.hp} HP)</h2>
-      <p style="background:#EFF6EC; padding:0.8rem; border-radius: 20px; margin:1rem 0;">*Asumsi: solar Rp14.000/L, 1.000 jam/tahun, 0.08 L/HP/jam. Harga perolehan sudah termasuk bea masuk & pengiriman.</p>
-      <div style="overflow-x:auto;"><table class="comparison-table"><thead><tr><th>Brand</th><th>Harga Perolehan</th><th>BBM/tahun</th><th>Maintenance/tahun</th><th>Overhaul(th5)</th><th>Nilai Residu</th><th>Total 5 Tahun</th><th>Rata-rata/th</th></tr></thead><tbody>${rows}</tbody></table></div>
-      <p style="font-size:0.7rem; margin-top:1rem;">*Data kompetitor merupakan perkiraan berdasarkan spesifikasi umum pasar dan wawancara lapangan. Angka dapat berubah sesuai kondisi.</p>
-      <button class="btn btn-primary" style="margin-top:1rem;" onclick="askPrice('${p.name}')">📞 ${t('price')}</button>
+  }
+  function showTyreDetail(index) {
+    const tyre = tyreData[index];
+    const detailDiv = document.getElementById('tyreDetail');
+    detailDiv.style.display = 'block';
+    let sizesHtml = tyre.sizes.map(s => `<li>${s}</li>`).join('');
+    detailDiv.innerHTML = `
+      <h4 style="color:#fff; font-family:monospace;">${tyre.name} <span style="color:var(--gold);">| ${tyre.type}</span></h4>
+      <p><strong>Ukuran:</strong></p><ul style="color:#ccc; padding-left:1.5rem;">${sizesHtml}</ul>
+      <p><strong>Tread Depth:</strong> ${tyre.tread}</p>
+      <p style="color:#ccc;">${tyre.desc}</p>
+      <small style="color:#666;">*Hubungi WhatsApp untuk harga & stok.</small>`;
+    detailDiv.scrollIntoView({ behavior:'smooth' });
+  }
+
+  function openROA() { openModal('modalROA'); }
+
+  // ============ ALSINTAN & TCO ============
+  const alsintanProducts = {
+    DF504: { name: 'Traktor DF504 (50 HP)', img: 'df504.jpg', specs: { id: ['Engine: 4 silinder, 50 HP','Transmisi: 8F+4R','4WD','PTO: 540/720 rpm','3-point lift: 800 kg','Berat: 2,100 kg'], en: ['Engine: 4-cyl, 50 HP','Transmission: 8F+4R','4WD','PTO: 540/720 rpm','Lift: 800 kg','Weight: 2,100 kg'] }, desc: { id:'Serbaguna untuk lahan kering dan basah. Irit bahan bakar.', en:'Versatile for dry and wet fields. Fuel efficient.' }, tco: { fob: 5324, hp: 50 } },
+    DF704: { name: 'Traktor DF704 (70 HP)', img: 'df704.jpg', specs: { id: ['Engine: 4 silinder, 70 HP','Transmisi: 8F+4R','4WD','PTO: 540/1000 rpm','Lift: 1,200 kg','Berat: 2,650 kg'], en: ['Engine: 4-cyl, 70 HP','8F+4R','4WD','PTO: 540/1000 rpm','Lift: 1,200 kg','Weight: 2,650 kg'] }, desc: { id:'Bertenga untuk pengolahan tanah berat, cocok perkebunan.', en:'Powerful for heavy soil, suitable for plantations.' }, tco: { fob: 6676, hp: 70 } },
+    DF904: { name: 'Traktor DF904 (90 HP)', img: 'df904.jpg', specs: { id: ['Engine: 4 silinder, 90 HP','12F+4R','4WD','PTO: 540/1000 rpm','Lift: 1,600 kg','Berat: 3,100 kg'], en: ['Engine: 4-cyl, 90 HP','12F+4R','4WD','PTO: 540/1000 rpm','Lift: 1,600 kg','Weight: 3,100 kg'] }, desc: { id:'Heavy-duty untuk lahan luas, kabin AC.', en:'Heavy-duty for large fields with AC cabin.' }, tco: { fob: 10310, hp: 90 } },
+    DF1004: { name: 'Traktor DF1004 (100 HP)', img: 'df1004.jpg', specs: { id: ['Engine: 4 silinder, 100 HP','12F+12R Powershuttle','4WD','PTO: 540/1000 rpm','Lift: 2,000 kg','Berat: 3,450 kg'], en: ['Engine: 4-cyl, 100 HP','12F+12R Powershuttle','4WD','PTO: 540/1000 rpm','Lift: 2,000 kg','Weight: 3,450 kg'] }, desc: { id:'Traktor flagship, kenyamanan tinggi untuk kontraktor.', en:'Flagship tractor, high comfort for contractors.' }, tco: { fob: 10408, hp: 100 } },
+    '4LZ7': { name: 'Rice Harvester 4LZ-7 (120 HP)', img: '4lz7.jpg', specs: { id: ['Engine: 120 HP','Kapasitas panen: 5-7 ton/jam','Grain tank: 1.500 liter','Sistem perontokan aksial','Lebar potong: 2.2 m','Berat: 4,800 kg'], en: ['Engine: 120 HP','Harvest capacity: 5-7 t/h','Grain tank: 1,500 L','Axial threshing','Cutting width: 2.2 m','Weight: 4,800 kg'] }, desc: { id:'Combine harvester modern untuk padi, efisiensi tinggi.', en:'Modern combine harvester for rice, high efficiency.' }, tco: { fob: 18900, hp: 120 } }
+  };
+
+  // Basis perbandingan (kompetitor K, JD, MF, Y)
+  const baseComparison = {
+    Dafeng:            { fuel:56000000, maint:4100000, overhaul:27600000, resale:48300000, total5:280000000, perYear:56000000 },
+    K:                 { fuel:56000000, maint:8500000, overhaul:57000000, resale:42500000, total5:356000000, perYear:71200000 },
+    JD:                { fuel:56000000, maint:12500000, overhaul:85000000, resale:72000000, total5:354000000, perYear:70800000 },
+    MF:                { fuel:56000000, maint:9800000, overhaul:66000000, resale:38000000, total5:372000000, perYear:74400000 },
+    Y:                 { fuel:56000000, maint:10200000, overhaul:68000000, resale:40000000, total5:370000000, perYear:74000000 }
+  };
+
+  function getCompetitorData(hp) {
+    const s = hp / 50;
+    const result = {};
+    for (const [brand, base] of Object.entries(baseComparison)) {
+      result[brand] = {
+        fuel: Math.round(base.fuel * s).toLocaleString('id-ID'),
+        maint: Math.round(base.maint * s).toLocaleString('id-ID'),
+        overhaul: Math.round(base.overhaul * s).toLocaleString('id-ID'),
+        resale: Math.round(base.resale * s).toLocaleString('id-ID'),
+        total5: Math.round(base.total5 * s).toLocaleString('id-ID'),
+        perYear: Math.round(base.perYear * s).toLocaleString('id-ID')
+      };
+    }
+    return result;
+  }
+
+  function showOperationalCost(model) {
+    const prod = alsintanProducts[model];
+    const tc = translations[currentLang].tco;
+    const comp = getCompetitorData(prod.tco.hp);
+    let rows = '';
+    for (const [brand, data] of Object.entries(comp)) {
+      rows += `<tr><td style="color:var(--gold); font-weight:600;">${brand}</td><td>Rp ${data.fuel}</td><td>Rp ${data.maint}</td><td>Rp ${data.overhaul}</td><td>Rp ${data.resale}</td><td>Rp ${data.total5}</td><td>Rp ${data.perYear}</td></tr>`;
+    }
+    document.getElementById('tcoContent').innerHTML = `
+      <h2 style="font-family:monospace;">📊 <span>${tc.title}</span></h2>
+      <p style="color:#aaa; margin-bottom:1rem;">${prod.name} – ${currentLang==='id'?'Proyeksi 5 tahun':'5-year projection'}</p>
+      <div style="background:#0d1222; border-radius:12px; padding:1rem; margin-bottom:1.5rem; border-left:4px solid var(--gold);">
+        <p style="font-size:0.9rem; color:#ccc;"><strong>📖 Definisi:</strong> ${tc.definisi}</p>
+        <p style="font-size:0.85rem; color:var(--gold); margin-top:0.5rem;">${tc.asumsi}</p>
+      </div>
+      <h4 style="color:#fff; margin:1rem 0 0.5rem;">${tc.comparison}</h4>
+      <div class="table-wrapper">
+        <table style="min-width:600px;">
+          <thead><tr><th>Brand</th><th>${tc.fuel}</th><th>${tc.maint}</th><th>${tc.overhaul}</th><th>${tc.resale}</th><th>${tc.total5}</th><th>${tc.totalYear}</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <p style="color:#888; font-size:0.8rem; margin:0.5rem 0;">${tc.disclaimer}</p>
+      <button class="btn btn-primary btn-sm" onclick="openWhatsApp('${prod.name}')">${tc.ask}</button>
     `;
     openModal('modalTCO');
   }
 
-  function askPrice(product) {
-    const msg = currentLang === 'id' ? `Halo PT. BST, saya tertarik dengan ${product}. Mohon info harga & ketersediaan.` : `Hello BST, I'm interested in ${product}. Please share price & availability.`;
-    window.open(`https://wa.me/6281383333435?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-  function askImplement(name) {
-    const msg = currentLang === 'id' ? `Harga implement ${name} DAFENG?` : `Price for ${name} implement DAFENG?`;
-    window.open(`https://wa.me/6281383333435?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-
-  function openVideoDemo() {
-    document.getElementById('modalVideoContent').innerHTML = `
-      <h2 style="color:#0F6B3A;">🎬 Video Demo Rice Harvester 4LZ-7</h2>
-      <div style="display:grid; gap:1rem; margin-top:1rem;">
-        <video controls width="100%" style="border-radius:16px;"><source src="RH 4LZ-7 1.mp4" type="video/mp4"> Browser tidak support video.</video>
-        <video controls width="100%" style="border-radius:16px;"><source src="RH 4LZ-7 2.mp4" type="video/mp4"></video>
-        <video controls width="100%" style="border-radius:16px;"><source src="RH 4LZ-7 3.mp4" type="video/mp4"></video>
-      </div>
-      <p style="margin-top:1rem;">*Pastikan file video tersedia di folder yang sama.</p>
-    `;
-    openModal('modalVideo');
-  }
-
-  function renderProducts() {
-    const grid = document.getElementById('productGrid');
+  function buildAlsintanCatalog() {
+    const grid = document.getElementById('alsintanProductGrid');
+    const models = ['DF504','DF704','DF904','DF1004','4LZ7'];
     grid.innerHTML = '';
-    for (const [key, p] of Object.entries(tractorData)) {
-      const isCombine = key === 'Combine4LZ7';
+    models.forEach(m => {
+      const p = alsintanProducts[m];
       grid.innerHTML += `
-        <div class="product-card" onclick="openProductDetail('${key}')">
-          <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/400x220'">
-          <div class="product-body">
-            <h3>${p.name}</h3><div class="badge">${p.hp} HP</div>
-            <p style="font-size:0.85rem;">${currentLang === 'id' ? p.desc_id.substring(0, 60) : p.desc_en.substring(0, 60)}...</p>
-            ${!isCombine ? `<div class="optional-note" style="margin:0.5rem 0;">${t('cabinNote')}</div>` : ''}
-            <div style="display:flex; gap:0.5rem; justify-content:center; margin-top:0.5rem;">
-              <button class="btn btn-outline btn-sm" style="padding:0.4rem 1rem;">${t('detail')}</button>
-              ${isCombine ? `<button class="btn btn-outline btn-sm" style="border-color:#C9A03D;" onclick="event.stopPropagation();openVideoDemo()">${t('videoDemo')}</button>` : ''}
-            </div>
+        <div class="alsintan-card" style="position:relative;">
+          <img src="${p.img}" alt="${p.name}" draggable="false" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem; background:#0d1222;">
+          <div class="icon" style="display:none;">🚜</div>
+          <h4>${p.name.split('(')[0]}</h4><p>${p.name.includes('(')?p.name.split('(')[1].replace(')',''):''}</p>
+          <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
+            <button class="btn btn-outline btn-sm" onclick="showAlsintanDetail('${m}')">${t('alsintan.detail')}</button>
+            ${m === '4LZ7' ? `<button class="btn btn-outline btn-sm" style="border-color:#4caf50; color:#4caf50;" onclick="openModal('modalVideo')">🎬 Video Demo</button>` : ''}
           </div>
         </div>`;
-    }
-    const implGrid = document.getElementById('implementGrid');
-    implGrid.innerHTML = '';
-    implementsList.forEach(impl => {
-      implGrid.innerHTML += `
-        <div class="product-card" onclick="askImplement('${impl.name}')">
-          <img src="${impl.img}" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display:none; height:220px; align-items:center; justify-content:center; background:#EFF6EC;"><i class="${impl.icon}" style="font-size:3rem; color:var(--primary);"></i></div>
-          <div class="product-body"><h3>${impl.name}</h3><p>${currentLang === 'id' ? impl.desc_id : impl.desc_en}</p><button class="btn btn-outline btn-sm">${t('price')}</button></div>
-        </div>`;
     });
+    const implGrid = document.getElementById('implementGrid');
+    implGrid.innerHTML = `
+      <div class="alsintan-card" onclick="openWhatsApp('Rotary Tiller')">
+        <img src="rotary-tiller.jpg" alt="Rotary Tiller" draggable="false" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem;"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="icon" style="display:none;">🔄</div>
+        <h4>${t('implement.rotary')}</h4><p>${t('implement.rotaryDesc')}</p>
+        <button class="btn btn-outline btn-sm" style="margin-top:0.5rem; width:100%;">${t('implement.priceBtn')}</button>
+      </div>
+      <div class="alsintan-card" onclick="openWhatsApp('Disc Plough')">
+        <img src="disc-plough.jpg" alt="Disc Plough" draggable="false" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem;"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="icon" style="display:none;">🪵</div>
+        <h4>${t('implement.disc')}</h4><p>${t('implement.discDesc')}</p>
+        <button class="btn btn-outline btn-sm" style="margin-top:0.5rem; width:100%;">${t('implement.priceBtn')}</button>
+      </div>
+      <div class="alsintan-card" onclick="openWhatsApp('Trailer')">
+        <img src="trailer.jpg" alt="Trailer" draggable="false" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem;"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="icon" style="display:none;">🚛</div>
+        <h4>${t('implement.trailer')}</h4><p>${t('implement.trailerDesc')}</p>
+        <button class="btn btn-outline btn-sm" style="margin-top:0.5rem; width:100%;">${t('implement.priceBtn')}</button>
+      </div>`;
   }
 
-  // modal helpers
-  function openModal(id) { document.getElementById(id).classList.add('active'); }
-  function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-  window.openModal = openModal; window.closeModal = closeModal;
-  window.openProductDetail = openProductDetail; window.showTCO = showTCO;
-  window.askPrice = askPrice; window.askImplement = askImplement;
-  window.openVideoDemo = openVideoDemo;
+  function showAlsintanDetail(model) {
+    const prod = alsintanProducts[model];
+    if (!prod) return;
+    const specs = prod.specs[currentLang] || prod.specs.id;
+    const cont = document.getElementById('alsintanDetailContent');
+    const specsHtml = specs.map(s => `<li>${s}</li>`).join('');
+    cont.innerHTML = `
+      <h2 style="font-family:monospace;"><span>${prod.name.split('(')[0]}</span> ${prod.name.includes('(') ? '('+prod.name.split('(')[1] : ''}</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:1rem;">
+        <div style="flex:1; min-width:200px; text-align:center;">
+          <img src="${prod.img}" alt="${prod.name}" draggable="false" style="width:100%; max-width:300px; border-radius:12px; background:#111827;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div style="display:none; font-size:4rem; color:var(--gold);">🚜</div>
+        </div>
+        <div style="flex:2; min-width:250px;">
+          <h4 style="color:#fff;">${currentLang==='id'?'Spesifikasi Teknis':'Technical Specifications'}</h4>
+          <ul style="color:#ccc; padding-left:1.2rem;">${specsHtml}</ul>
+          <p style="color:#bbb; margin-top:1rem;">${prod.desc[currentLang] || prod.desc.id}</p>
+          <div style="display:flex; gap:1rem; margin-top:1rem;">
+            <button class="btn btn-primary btn-sm" onclick="openWhatsApp('${prod.name}')">📞 ${currentLang==='id'?'Tanya Harga':'Ask Price'}</button>
+            <button class="btn btn-outline btn-sm" onclick="showOperationalCost('${model}')">📊 ${currentLang==='id'?'Estimasi Biaya Operasional':'Operational Cost Estimate'}</button>
+          </div>
+        </div>
+      </div>
+    `;
+    openModal('modalAlsintanDetail');
+  }
 
-  // init & mobile menu
-  document.addEventListener('DOMContentLoaded', () => {
-    applyLanguage('id');
-    document.getElementById('menuToggleBtn').addEventListener('click', () => document.getElementById('navMenu').classList.toggle('active'));
-    document.querySelectorAll('#navMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('navMenu').classList.remove('active')));
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => anchor.addEventListener('click', function(e) {
-      e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    }));
-    document.querySelectorAll('.modal-overlay').forEach(ov => ov.addEventListener('click', function(e) { if (e.target === this) closeModal(this.id); }));
-    window.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(ov => closeModal(ov.id)); });
-    window.addEventListener('contextmenu', e => e.preventDefault());
+  function openWhatsApp(product) {
+    window.open(`https://wa.me/6288802032033?text=${currentLang==='id'?'Halo':'Hello'}%20PT.%20PUTRA%20TEKNIK%20HARISINDO%2C%20${currentLang==='id'?'saya tertarik dengan':'I am interested in'}%20${encodeURIComponent(product)}.`, '_blank');
+  }
+
+  // Inisialisasi
+  window.addEventListener('load', () => {
+    applyLanguage(currentLang);
+    buildAlsintanCatalog();
+    document.getElementById('sparepartGuide').innerHTML = t('modal.sparepartGuide');
   });
 </script>
+
 </body>
 </html>
