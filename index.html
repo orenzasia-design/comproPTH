@@ -34,7 +34,6 @@
       background-attachment: fixed;
       position: relative;
     }
-    /* Pattern mewah overlay */
     body::before {
       content: "";
       position: fixed;
@@ -226,7 +225,7 @@
 
 <header id="header">
   <div class="logo">
-    <img src="logo pth.jpg" class="logo-img" alt="Logo PT" draggable="false">
+    <img src="logopth.jpg" class="logo-img" alt="Logo PT" draggable="false">
     <span>HARISINDO<span>.</span></span>
   </div>
   <div style="display:flex; align-items:center;">
@@ -260,8 +259,8 @@
   <h2 class="section-title"><span data-lang="products.line">Lini</span> <span data-lang="products.title">Produk</span></h2>
   <div class="product-grid">
     
-    <div class="product-card" onclick="setBodyBackground('background-spareparts.jpg'); openModal('modalSparepart');">
-      <img src="sparepart-kolase.jpg" alt="Kolase Unit" class="product-img" draggable="false"
+    <div class="product-card" onclick="setBodyBackground('backgroundspareparts.jpg'); openModal('modalSparepart');">
+      <img src="sparepartkolase.jpg" alt="Kolase Unit" class="product-img" draggable="false"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">⚙️</div>
       <div class="product-body">
@@ -272,8 +271,8 @@
       </div>
     </div>
 
-    <div class="product-card" onclick="setBodyBackground('background-spareparts.jpg'); openModal('modalTyre');buildTyreCatalog();">
-      <img src="tyre-cover.jpg" alt="Ban" class="product-img" draggable="false"
+    <div class="product-card" onclick="setBodyBackground('backgroundspareparts.jpg'); openModal('modalTyre');buildTyreCatalog();">
+      <img src="tyrecover.jpg" alt="Ban" class="product-img" draggable="false"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">⭕</div>
       <div class="product-body">
@@ -285,7 +284,7 @@
     </div>
 
     <div class="product-card" onclick="openModal('modalCaO')">
-      <img src="cao-cover.jpg" alt="CaO" class="product-img" draggable="false"
+      <img src="caocover.jpg" alt="CaO" class="product-img" draggable="false"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">⛰️</div>
       <div class="product-body">
@@ -296,8 +295,8 @@
       </div>
     </div>
 
-    <div class="product-card" onclick="setBodyBackground('background-alsintan.jpg'); openModal('modalAlsintan');">
-      <img src="alsintan-cover.jpg" alt="Alsintan" class="product-img" draggable="false"
+    <div class="product-card" onclick="setBodyBackground('backgroundspareparts.jpg'); openModal('modalAlsintan');">
+      <img src="alsintancover.jpg" alt="Alsintan" class="product-img" draggable="false"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div style="display:none; height:180px; align-items:center; justify-content:center; font-size:3rem; color:var(--gold); background:#111827;">🚜</div>
       <div class="product-body">
@@ -333,7 +332,7 @@
   <h2 class="section-title"><span data-lang="contact.us">Hubungi</span> <span data-lang="contact.them">Kami</span></h2>
   <div class="contact-wrapper">
     <a href="https://wa.me/6288802032033" target="_blank" class="contact-card">
-      <img src="Logo WA.jpg" alt="WhatsApp" class="contact-icon"
+      <img src="logowa.jpg" alt="WhatsApp" class="contact-icon"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
       <div style="display:none; font-size:4rem; color:var(--gold); margin-bottom:1rem;">💬</div>
       <h3>WhatsApp</h3>
@@ -349,7 +348,7 @@
   <p data-lang="footer">© 2025 PT. PUTRA TEKNIK HARISINDO. All rights reserved. | NPWP: 03.974.506.2-005.000 | Sparepart Truck & Heavy Equipment</p>
 </footer>
 
-<!-- Modal Sparepart (konten sama, hanya teks perusahaan di script nanti) -->
+<!-- Modal Sparepart -->
 <div class="modal-overlay" id="modalSparepart">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modalSparepart')">&times;</button>
@@ -418,7 +417,7 @@
     <h2><span>CaO</span> <span data-lang="cao.full">Limestone Highgrade</span></h2>
     <div style="display:flex; flex-wrap:wrap; gap:2rem; align-items:center;">
       <div style="flex:1; min-width:200px; text-align:center;">
-        <img src="cao-jumbo.jpg" alt="CaO Jumbo Bag" style="width:100%; max-width:250px; border-radius:16px;" draggable="false"
+        <img src="caojumbo.jpg" alt="CaO Jumbo Bag" style="width:100%; max-width:250px; border-radius:16px;" draggable="false"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display:none; font-size:3rem; color:var(--gold);">⛰️</div>
         <p style="color:#fff; font-weight:700; margin-top:0.5rem;">CALCIUM OXIDE (CaO)</p>
@@ -500,7 +499,7 @@
   </div>
 </div>
 
-<!-- Modal Video Demo Harvester (tetap) -->
+<!-- Modal Video Demo Harvester -->
 <div class="modal-overlay" id="modalVideo">
   <div class="modal" style="max-width:800px;">
     <button class="modal-close" onclick="closeModal('modalVideo')">&times;</button>
@@ -511,32 +510,32 @@
       <div style="background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
         <h4 style="color:#fff; margin-bottom:0.5rem;">🎬 Demo 1: Proses Pemanenan Padi di Lahan</h4>
         <video controls width="100%" style="border-radius:8px; max-height:400px;">
-          <source src="RH 4LZ-7 1.mp4" type="video/mp4">
-          Browser Anda tidak mendukung pemutaran video. <a href="RH 4LZ-7 1.mp4" download>Unduh video</a>.
+          <source src="rh4lz-7-1.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video. <a href="rh4lz-7-1.mp4" download>Unduh video</a>.
         </video>
       </div>
       <div style="background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
         <h4 style="color:#fff; margin-bottom:0.5rem;">🎬 Demo 2: Pengoperasian di Sawah Terbuka</h4>
         <video controls width="100%" style="border-radius:8px; max-height:400px;">
-          <source src="RH 4LZ-7 2.mp4" type="video/mp4">
-          Browser Anda tidak mendukung pemutaran video. <a href="RH 4LZ-7 2.mp4" download>Unduh video</a>.
+          <source src="rh4lz-7-2.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video. <a href="rh4lz-7-2.mp4" download>Unduh video</a>.
         </video>
       </div>
       <div style="background:#0d1222; border:1px solid #2a3142; border-radius:12px; padding:1rem;">
         <h4 style="color:#fff; margin-bottom:0.5rem;">🎬 Demo 3: Hasil Panen & Kinerja Mesin</h4>
         <video controls width="100%" style="border-radius:8px; max-height:400px;">
-          <source src="RH 4LZ-7 3.mp4" type="video/mp4">
-          Browser Anda tidak mendukung pemutaran video. <a href="RH 4LZ-7 3.mp4" download>Unduh video</a>.
+          <source src="rh4lz-7-3.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video. <a href="rh4lz-7-3.mp4" download>Unduh video</a>.
         </video>
       </div>
     </div>
     
-    <p style="color:#888; font-size:0.8rem; margin-top:1rem;">*Pastikan folder berisi file video: <strong>RH 4LZ-7 1.mp4</strong>, <strong>RH 4LZ-7 2.mp4</strong>, <strong>RH 4LZ-7 3.mp4</strong>.</p>
+    <p style="color:#888; font-size:0.8rem; margin-top:1rem;">*Pastikan folder berisi file video: <strong>rh4lz-7-1.mp4</strong>, <strong>rh4lz-7-2.mp4</strong>, <strong>rh4lz-7-3.mp4</strong>.</p>
   </div>
 </div>
 
 <script>
-  // ============ MULTI LANGUAGE dengan entity baru ============
+  // ============ MULTI LANGUAGE ============
   const translations = {
     id: {
       langIcon: '🇮🇩', langText: 'ID',
@@ -812,14 +811,14 @@
 
   // ============ TYRE ============
   const tyreData = [
-    { name:'CB793', type:'Widebody Dump Truck', img:'tyre-cb793.jpg', sizes:['13.00R25 ★★★ 163/182A','14.00R24 ★★★ 169/188A','14.00R25 ★★★ 169/188A'], tread:'29-31 mm', desc: currentLang==='id'?'Pola khusus truk widebody. Traksi unggul di medan basah, kompon tahan potong.':'Special widebody truck pattern. Excellent traction on wet ground.' },
-    { name:'CM770PRO', type:'Crane Tire', img:'tyre-cm770pro.jpg', sizes:['385/95R25 170F'], tread:'Variatif', desc: currentLang==='id'?'Stabilitas tinggi, longitudinal groove anti selip.':'High stability, anti-slip longitudinal groove.' },
-    { name:'CB386', type:'Loader Tire', img:'tyre-cb386.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Dalam', desc: 'Block besar, traksi sangat baik. Kompon fleksibel tahan potong/tusuk.' },
-    { name:'E4 Underground', type:'Underground Mine', img:'tyre-e4.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Ekstra dalam', desc: 'Desain block besar untuk operasi bawah tanah.' },
-    { name:'Smooth Mine', type:'Underground Smooth', img:'tyre-smooth.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Low Section', desc: 'Permukaan halus, kontur kuat, masa pakai panjang.' },
-    { name:'Dump Truck', type:'Off-Highway Dump', img:'tyre-dump.jpg', sizes:['16.00R25','23.5R25','26.5R25'], tread:'Ultra deep', desc: 'Heat dissipation, kompon TKPH tinggi.' },
-    { name:'Loader Bias', type:'Bias Loader', img:'tyre-loader-bias.jpg', sizes:['Multi size'], tread:'Standar', desc: 'Ekonomis dan andal untuk berbagai kondisi.' },
-    { name:'Motor Grader', type:'Grader', img:'tyre-grader.jpg', sizes:['Tersedia'], tread:'Variatif', desc: 'Traksi baik, wear resistance optimal.' }
+    { name:'CB793', type:'Widebody Dump Truck', img:'tyrecb793.jpg', sizes:['13.00R25 ★★★ 163/182A','14.00R24 ★★★ 169/188A','14.00R25 ★★★ 169/188A'], tread:'29-31 mm', desc: 'Pola khusus truk widebody. Traksi unggul di medan basah.' },
+    { name:'CM770PRO', type:'Crane Tire', img:'tyrecm770pro.jpg', sizes:['385/95R25 170F'], tread:'Variatif', desc: 'Stabilitas tinggi, longitudinal groove anti selip.' },
+    { name:'CB386', type:'Loader Tire', img:'tyrecb386.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Dalam', desc: 'Block besar, traksi sangat baik. Kompon fleksibel tahan potong/tusuk.' },
+    { name:'E4 Underground', type:'Underground Mine', img:'tyree4.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Ekstra dalam', desc: 'Desain block besar untuk operasi bawah tanah.' },
+    { name:'Smooth Mine', type:'Underground Smooth', img:'tyresmooth.jpg', sizes:['Tersedia berbagai ukuran'], tread:'Low Section', desc: 'Permukaan halus, kontur kuat, masa pakai panjang.' },
+    { name:'Dump Truck', type:'Off-Highway Dump', img:'tyredump.jpg', sizes:['16.00R25','23.5R25','26.5R25'], tread:'Ultra deep', desc: 'Heat dissipation, kompon TKPH tinggi.' },
+    { name:'Loader Bias', type:'Bias Loader', img:'tyreloaderbias.jpg', sizes:['Multi size'], tread:'Standar', desc: 'Ekonomis dan andal.' },
+    { name:'Motor Grader', type:'Grader', img:'tyregrader.jpg', sizes:['Tersedia'], tread:'Variatif', desc: 'Traksi baik, wear resistance optimal.' }
   ];
 
   function buildTyreCatalog() {
@@ -862,7 +861,6 @@
     '4LZ7': { name: 'Rice Harvester 4LZ-7 (120 HP)', img: '4lz7.jpg', specs: { id: ['Engine: 120 HP','Kapasitas panen: 5-7 ton/jam','Grain tank: 1.500 liter','Sistem perontokan aksial','Lebar potong: 2.2 m','Berat: 4,800 kg'], en: ['Engine: 120 HP','Harvest capacity: 5-7 t/h','Grain tank: 1,500 L','Axial threshing','Cutting width: 2.2 m','Weight: 4,800 kg'] }, desc: { id:'Combine harvester modern untuk padi, efisiensi tinggi.', en:'Modern combine harvester for rice, high efficiency.' }, tco: { fob: 18900, hp: 120 } }
   };
 
-  // Basis perbandingan (kompetitor K, JD, MF, Y)
   const baseComparison = {
     Dafeng:            { fuel:56000000, maint:4100000, overhaul:27600000, resale:48300000, total5:280000000, perYear:56000000 },
     K:                 { fuel:56000000, maint:8500000, overhaul:57000000, resale:42500000, total5:356000000, perYear:71200000 },
@@ -935,14 +933,14 @@
     const implGrid = document.getElementById('implementGrid');
     implGrid.innerHTML = `
       <div class="alsintan-card" onclick="openWhatsApp('Rotary Tiller')">
-        <img src="rotary-tiller.jpg" alt="Rotary Tiller" draggable="false" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem;"
+        <img src="rotarytiller.jpg" alt="Rotary Tiller" draggable="false" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem;"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="icon" style="display:none;">🔄</div>
         <h4>${t('implement.rotary')}</h4><p>${t('implement.rotaryDesc')}</p>
         <button class="btn btn-outline btn-sm" style="margin-top:0.5rem; width:100%;">${t('implement.priceBtn')}</button>
       </div>
       <div class="alsintan-card" onclick="openWhatsApp('Disc Plough')">
-        <img src="disc-plough.jpg" alt="Disc Plough" draggable="false" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem;"
+        <img src="discplough.jpg" alt="Disc Plough" draggable="false" style="width:100%; height:120px; object-fit:contain; border-radius:8px; margin-bottom:0.5rem;"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="icon" style="display:none;">🪵</div>
         <h4>${t('implement.disc')}</h4><p>${t('implement.discDesc')}</p>
@@ -993,6 +991,7 @@
   window.addEventListener('load', () => {
     applyLanguage(currentLang);
     buildAlsintanCatalog();
+    buildTyreCatalog();
     document.getElementById('sparepartGuide').innerHTML = t('modal.sparepartGuide');
   });
 </script>
